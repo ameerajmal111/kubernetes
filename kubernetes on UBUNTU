@@ -1,16 +1,11 @@
+
+###Install latest MicroK8s
 aab@aab-ubuntu:/opt$ sudo mkdir kubernetes
 [sudo] password for aab: 
 aab@aab-ubuntu:/opt$ cd kubernetes/
 aab@aab-ubuntu:/opt/kubernetes$ sudo snap install microk8s --classic
 microk8s (1.19/stable) v1.19.0 from Canonical✓ installed
-aab@aab-ubuntu:/opt/kubernetes$ microk8s.status
-Insufficient permissions to access MicroK8s.
-You can either try again with sudo or add the user aab to the 'microk8s' group:
-
-    sudo usermod -a -G microk8s aab
-    sudo chown -f -R aab ~/.kube
-
-The new group will be available on the user's next login.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 aab@aab-ubuntu:/opt/kubernetes$ sudo microk8s.status
 [sudo] password for aab: 
 microk8s is running
@@ -44,4 +39,116 @@ addons:
     registry             # Private image registry exposed on localhost:32000
     storage              # Storage class; allocates storage from host directory
 aab@aab-ubuntu:/opt/kubernetes$ 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+####List specific Kubernetes version
+aab@aab-ubuntu:/opt/kubernetes$ snap info microk8s
+name:      microk8s
+summary:   Lightweight Kubernetes for workstations and appliances
+publisher: Canonical✓
+store-url: https://snapcraft.io/microk8s
+contact:   https://github.com/ubuntu/microk8s
+license:   unset
+description: |
+  MicroK8s is the smallest, simplest, pure production Kubernetes for clusters, laptops, IoT and
+  Edge, on Intel and ARM. One command installs a single-node K8s cluster with carefully selected
+  add-ons on Linux, Windows and macOS.  MicroK8s requires no configuration, supports automatic
+  updates and GPU acceleration. Use it for offline development, prototyping, testing, to build your
+  CI/CD pipeline or your IoT apps.
+commands:
+  - microk8s.add-node
+  - microk8s.cilium
+  - microk8s.config
+  - microk8s.ctr
+  - microk8s.dashboard-proxy
+  - microk8s.dbctl
+  - microk8s.disable
+  - microk8s.enable
+  - microk8s.helm
+  - microk8s.helm3
+  - microk8s.inspect
+  - microk8s.istioctl
+  - microk8s.join
+  - microk8s.juju
+  - microk8s.kubectl
+  - microk8s.leave
+  - microk8s.linkerd
+  - microk8s
+  - microk8s.refresh-certs
+  - microk8s.remove-node
+  - microk8s.reset
+  - microk8s.start
+  - microk8s.status
+  - microk8s.stop
+services:
+  microk8s.daemon-apiserver:            simple, enabled, active
+  microk8s.daemon-apiserver-kicker:     simple, enabled, active
+  microk8s.daemon-cluster-agent:        simple, enabled, active
+  microk8s.daemon-containerd:           simple, enabled, active
+  microk8s.daemon-control-plane-kicker: simple, enabled, active
+  microk8s.daemon-controller-manager:   simple, enabled, active
+  microk8s.daemon-etcd:                 simple, enabled, inactive
+  microk8s.daemon-flanneld:             simple, enabled, inactive
+  microk8s.daemon-kubelet:              simple, enabled, active
+  microk8s.daemon-proxy:                simple, enabled, active
+  microk8s.daemon-scheduler:            simple, enabled, active
+snap-id:      EaXqgt1lyCaxKaQCU349mlodBkDCXRcg
+tracking:     1.19/stable
+refresh-date: 2 days ago, at 11:10 CDT
+channels:
+  1.19/stable:      v1.19.0  2020-09-03 (1667) 214MB classic
+  1.19/candidate:   v1.19.2  2020-09-22 (1710) 214MB classic
+  1.19/beta:        v1.19.2  2020-09-22 (1710) 214MB classic
+  1.19/edge:        v1.19.2  2020-09-16 (1710) 214MB classic
+  latest/stable:    v1.19.0  2020-09-08 (1668) 214MB classic
+  latest/candidate: v1.19.2  2020-09-22 (1709) 214MB classic
+  latest/beta:      v1.19.2  2020-09-22 (1709) 214MB classic
+  latest/edge:      v1.19.2  2020-09-16 (1709) 214MB classic
+  dqlite/stable:    –                                
+  dqlite/candidate: –                                
+  dqlite/beta:      –                                
+  dqlite/edge:      v1.16.2  2019-11-07 (1038) 189MB classic
+  1.18/stable:      v1.18.8  2020-08-25 (1609) 201MB classic
+  1.18/candidate:   v1.18.8  2020-08-17 (1609) 201MB classic
+  1.18/beta:        v1.18.8  2020-08-17 (1609) 201MB classic
+  1.18/edge:        v1.18.9  2020-09-16 (1702) 199MB classic
+  1.17/stable:      v1.17.11 2020-08-25 (1608) 179MB classic
+  1.17/candidate:   v1.17.11 2020-08-21 (1608) 179MB classic
+  1.17/beta:        v1.17.11 2020-08-21 (1608) 179MB classic
+  1.17/edge:        v1.17.12 2020-09-16 (1701) 177MB classic
+  1.16/stable:      v1.16.15 2020-09-12 (1671) 179MB classic
+  1.16/candidate:   v1.16.15 2020-09-04 (1671) 179MB classic
+  1.16/beta:        v1.16.15 2020-09-04 (1671) 179MB classic
+  1.16/edge:        v1.16.15 2020-09-02 (1671) 179MB classic
+  1.15/stable:      v1.15.11 2020-03-27 (1301) 171MB classic
+  1.15/candidate:   v1.15.11 2020-03-27 (1301) 171MB classic
+  1.15/beta:        v1.15.11 2020-03-27 (1301) 171MB classic
+  1.15/edge:        v1.15.11 2020-03-26 (1301) 171MB classic
+  1.14/stable:      v1.14.10 2020-01-06 (1120) 217MB classic
+  1.14/candidate:   ↑                                
+  1.14/beta:        ↑                                
+  1.14/edge:        v1.14.10 2020-03-26 (1303) 217MB classic
+  1.13/stable:      v1.13.6  2019-06-06  (581) 237MB classic
+  1.13/candidate:   ↑                                
+  1.13/beta:        ↑                                
+  1.13/edge:        ↑                                
+  1.12/stable:      v1.12.9  2019-06-06  (612) 259MB classic
+  1.12/candidate:   ↑                                
+  1.12/beta:        ↑                                
+  1.12/edge:        ↑                                
+  1.11/stable:      v1.11.10 2019-05-10  (557) 258MB classic
+  1.11/candidate:   ↑                                
+  1.11/beta:        ↑                                
+  1.11/edge:        ↑                                
+  1.10/stable:      v1.10.13 2019-04-22  (546) 222MB classic
+  1.10/candidate:   ↑                                
+  1.10/beta:        ↑                                
+  1.10/edge:        ↑                                
+installed:          v1.19.0             (1667) 214MB classic
+aab@aab-ubuntu:/opt/kubernetes$ 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Install specific Kubernetes version
 
+This command will install the stable 1.14 version of MicroK8s:
+
+sudo snap install microk8s --classic --channel=1.14/stable
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
