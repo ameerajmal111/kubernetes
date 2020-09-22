@@ -1,0 +1,47 @@
+aab@aab-ubuntu:/opt$ sudo mkdir kubernetes
+[sudo] password for aab: 
+aab@aab-ubuntu:/opt$ cd kubernetes/
+aab@aab-ubuntu:/opt/kubernetes$ sudo snap install microk8s --classic
+microk8s (1.19/stable) v1.19.0 from Canonical✓ installed
+aab@aab-ubuntu:/opt/kubernetes$ microk8s.status
+Insufficient permissions to access MicroK8s.
+You can either try again with sudo or add the user aab to the 'microk8s' group:
+
+    sudo usermod -a -G microk8s aab
+    sudo chown -f -R aab ~/.kube
+
+The new group will be available on the user's next login.
+aab@aab-ubuntu:/opt/kubernetes$ sudo microk8s.status
+[sudo] password for aab: 
+microk8s is running
+high-availability: no
+  datastore master nodes: 127.0.0.1:19001
+  datastore standby nodes: none
+addons:
+  enabled:
+    ha-cluster           # Configure high availability on the current node
+  disabled:
+    ambassador           # Ambassador API Gateway and Ingress
+    cilium               # SDN, fast with full network policy
+    dashboard            # The Kubernetes dashboard
+    dns                  # CoreDNS
+    fluentd              # Elasticsearch-Fluentd-Kibana logging and monitoring
+    gpu                  # Automatic enablement of Nvidia CUDA
+    helm                 # Helm 2 - the package manager for Kubernetes
+    helm3                # Helm 3 - Kubernetes package manager
+    host-access          # Allow Pods connecting to Host services smoothly
+    ingress              # Ingress controller for external access
+    istio                # Core Istio service mesh services
+    jaeger               # Kubernetes Jaeger operator with its simple config
+    knative              # The Knative framework on Kubernetes.
+    kubeflow             # Kubeflow for easy ML deployments
+    linkerd              # Linkerd is a service mesh for Kubernetes and other frameworks
+    metallb              # Loadbalancer for your Kubernetes cluster
+    metrics-server       # K8s Metrics Server for API access to service metrics
+    multus               # Multus CNI enables attaching multiple network interfaces to pods
+    prometheus           # Prometheus operator for monitoring and logging
+    rbac                 # Role-Based Access Control for authorisation
+    registry             # Private image registry exposed on localhost:32000
+    storage              # Storage class; allocates storage from host directory
+aab@aab-ubuntu:/opt/kubernetes$ 
+
